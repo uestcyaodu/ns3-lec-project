@@ -23,10 +23,10 @@ using namespace ns3;
 NS_LOG_COMPONENT_DEFINE ("HelloSimulator");
 
 static void printHello(
-	std::string name,std::string number,float stop_at)
+	std::string name,int number,float stop_at,float cycle)
 {
-	std::cout<<Simulator::Now()<<" Hello "<<name<<"_ID:"<<number<<"_running_time(s):"<<stop_at<<std::endl;
-	Simulator::Schedule(Seconds(5),&printHello,name,number,stop_at);
+	std::cout<<Simulator::Now()<<" Hello "<<name<<"_ID:"<<number<<"_running_time(s):"<<stop_at<<"_running_cycle(s):"<<cycle<<std::endl;
+	Simulator::Schedule(Seconds(cycle),&printHello,name,number,stop_at,cycle);
 }
 // ./test arg0 arg1 arg2
 // argc=4
@@ -40,13 +40,15 @@ main (int argc, char *argv[])
 {
 	CommandLine cmd;
 	std::string name;
-	std::string number;
+	int number;
   float stop_at;
+	float cycle;
 	cmd.AddValue ("name", "my_name", name);
 	cmd.AddValue ("number","ID", number);
 	cmd.AddValue ("stop_at","running_time", stop_at);
+	cmd.AddValue ("cycle","running_cycle", cycle);
 	cmd.Parse(argc,argv);
-	printHello(name,number,stop_at);
+	printHello(name,number,stop_at,cycle);
 	Simulator::Stop(Seconds(stop_at));
 	Simulator::Run ();
 	Simulator::Destroy ();
