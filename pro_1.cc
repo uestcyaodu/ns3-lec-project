@@ -41,7 +41,7 @@ main (int argc, char *argv[])
 	CommandLine cmd;
 	std::string name;
 	int number;
-  float stop_at;
+	float stop_at;
 	float cycle;
 	cmd.AddValue ("name", "my_name", name);
 	cmd.AddValue ("number","ID", number);
@@ -49,7 +49,7 @@ main (int argc, char *argv[])
 	cmd.AddValue ("cycle","running_cycle", cycle);
 	cmd.Parse(argc,argv);
 	printHello(name,number,stop_at,cycle);
-	Simulator::Stop(Seconds(stop_at));
+	Simulator::Stop(Seconds(stop_at+1));
 	Simulator::Run ();
 	Simulator::Destroy ();
 }
