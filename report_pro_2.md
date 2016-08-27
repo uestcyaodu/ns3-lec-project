@@ -26,10 +26,12 @@
 ```
 - echo server安装于Section 1最左端的10.1.2.3 端口号为6
 - 客户端安装于Section 2的所有wifi STA 上
+---
 ###运行截图
 ![Image of pro_2.1 running result]
 (http://ww3.sinaimg.cn/large/005unglEgw1f78fto2ghej30lm0bxtcp.jpg)
 - 结合拓扑，由上图可知，Section 2的所有客户端皆可正常与Section 1最左侧服务器通信
+---
 ###移动模型代码
 ```C++
 //配置移动模型，起始位置
@@ -81,13 +83,15 @@
 ```
 - echo server安装于Section 1最左端的10.1.2.3 端口号为6
 - 客户端安装于Section 2的所有wifi STA 上以及LAN中的设备n1上
+---
 ###运行截图
-![Image of pro_2.2 running result]
+![Image of pro_2.1 running result]
 (http://ww4.sinaimg.cn/large/005unglEgw1f78ooqroocj30lo0dc0w7.jpg)
 - 结合拓扑，由上图可知，Section 2的所有客户端及LAN中的设备，皆可正常与Section 1最左侧服务器通信
+---
 ###移动模型代码
 ```C++
-//配置STA移动方式，两区STA设置为两种随机运动模型：RandomWalk2dMobilityModel、RandomDirection2dMobilityModel
+配置STA移动方式，两区STA设置为两种随机运动模型：RandomWalk2dMobilityModel、RandomDirection2dMobilityModel
     mobility.SetMobilityModel (
     "ns3::RandomWalk2dMobilityModel",
     "Bounds", RectangleValue (Rectangle (-100, 100, -100, 100))
