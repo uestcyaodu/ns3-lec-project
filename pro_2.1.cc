@@ -49,7 +49,7 @@ main (int argc, char *argv[])
   bool verbose = true;
   uint32_t nWifi_1 = 3;			//wifi 区1节点数量
   uint32_t nWifi_2 = 4;				//wifi 区2节点数量
-   bool tracing = false;
+   bool tracing = true;
 
 
   CommandLine cmd;

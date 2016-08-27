@@ -47,7 +47,7 @@ main (int argc, char *argv[])
   uint32_t nWifi_1 = 3;			//wifi 区1节点数量
   uint32_t nWifi_2 = 3;
   uint32_t nCsma = 3;		 	  //wifi 区2节点数量
-   bool tracing = false;
+   bool tracing = true;
 
 
   CommandLine cmd;
@@ -239,6 +239,7 @@ main (int argc, char *argv[])
   if (tracing == true)
     {
       csma.EnablePcap ("pro_2.2", csmaDevices.Get (0), true);
+      csma.EnablePcap ("pro_2.2", csmaDevices.Get (nCsma - 1), true);
       phy_1.EnablePcap ("pro_2.2", apDevices_1.Get (0));
       phy_2.EnablePcap ("pro_2.2", apDevices_2.Get (0));
     }
